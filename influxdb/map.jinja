@@ -6,8 +6,10 @@
 
 {% if influxdb_version.startswith('0.8') %}
 {% set defaults = version_map.get('0_8') %}
-{% else %}
+{% elif influxdb_version.startswith('0.9') %}
 {% set defaults = version_map.get('0_9') %}
+{% else %}
+{% set defaults = version_map.get('v0_10') %}
 {% endif %}
 
 {# Filter os_map by os grain and merge overrides #}
